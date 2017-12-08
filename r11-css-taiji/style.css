@@ -1,0 +1,45 @@
+#tai-ji{
+  margin: auto;
+  margin-top: calc(50vh - 50px);
+  width: 96px;
+  height: 48px;
+  background-color: #000;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 2px 2px 50px 2px;
+  border-radius: 100%;
+  position: relative;
+  box-shadow: 0 0 10px black;
+  animation-name: rotate;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+}
+#tai-ji::before{
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border: 18px solid #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+#tai-ji::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 18px solid black;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+@keyframes rotate{
+  form{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
