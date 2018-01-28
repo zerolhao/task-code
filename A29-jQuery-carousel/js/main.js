@@ -8,9 +8,13 @@ for (let i = 0; i < $allBtns.length; i++) {
       transform: 'translate(' + px + 'px)'
     })
     n = index
-    $allBtns.eq(index).addClass('redText')
-      .siblings('.redText').removeClass('redText')
+    activeButton($allBtns.eq(index))
   })
+}
+
+function activeButton($btn) {
+  $btn.addClass('redText')
+    .siblings('.redText').removeClass('redText')
 }
 // 添加自动轮播
 var n = 0
@@ -23,7 +27,7 @@ function setTimer() {
   return setInterval(function() {
     $allBtns.eq(n % len).trigger('click')
     n++
-  }, 1000)
+  }, 1300)
 }
 
 // 添加鼠标悬停
