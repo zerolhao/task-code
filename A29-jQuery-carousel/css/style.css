@@ -1,0 +1,23 @@
+.window{
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+.images{
+  display: flex;
+  align-items: flex-start;
+  transition: all .5s;
+}
+.buttons{
+  margin: 10px;
+}
+.buttons > span{
+  cursor: pointer;
+  padding: 2px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
+}
+.redText{
+  color: red;
+}
