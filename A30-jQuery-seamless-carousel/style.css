@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.window{
+  margin: auto;
+  width: 300px;
+  height: 300px; 
+  overflow: hidden;
+  position: relative;
+}
+.window > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
+}
+.window > img.ready{
+  left: 100%;
+}
+.window > img.active{
+  left: 0;
+  z-index: 1;
+}
+.window > img.leave{
+  left: -100%;
+}
