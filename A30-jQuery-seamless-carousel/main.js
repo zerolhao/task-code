@@ -1,7 +1,7 @@
 var $imgs = $('.window > img')
 var n
 init()
-setInterval(() => {
+let timer = setInterval(() => {
   makeLeave($imgs.eq(n))
     .one('transitionend', (e) => {
       makeReady($(e.currentTarget))
@@ -9,7 +9,21 @@ setInterval(() => {
   makeActive($imgs.eq(checkN(n + 1)))
   n = checkN(++n)
 }, 1300)
-
+// 当标签页被隐藏时停止播放
+document.addEventListener('visibilitychange', function(e) {
+  if (document.hidden) {
+    window.clearInterval(timer)
+  } else {
+    timer = setInterval(() => {
+      makeLeave($imgs.eq(n))
+        .one('transitionend', (e) => {
+          makeReady($(e.currentTarget))
+        })
+      makeActive($imgs.eq(checkN(n + 1)))
+      n = checkN(++n)
+    }, 1300)
+  }
+})
 
 
 function checkN(n) {
@@ -25,12 +39,15 @@ function init() {
   $imgs.eq(n).addClass('active')
   $imgs.eq(n).siblings().addClass('ready')
 }
-function makeLeave($obj){
+
+function makeLeave($obj) {
   return $obj.addClass('leave').removeClass('active')
 }
-function makeReady($obj){
+
+function makeReady($obj) {
   return $obj.addClass('ready').removeClass('leave')
 }
-function makeActive($obj){
+
+function makeActive($obj) {
   return $obj.addClass('active').removeClass('ready')
 }
