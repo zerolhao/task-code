@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.window{
+  margin: auto;
+  width: 300px;
+  height: 300px; 
+  overflow: hidden;
+}
+.window > .images{
+  display: flex;
+  transition: all .5s;
+}
+.buttonWrapper{
+  text-align: center;
+}
+.buttonWrapper >button{
+  padding: 3px 5px;
+  margin: 2px;
+}
