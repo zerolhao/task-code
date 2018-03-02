@@ -12,7 +12,7 @@
   display: flex;
   transition: all .5s;
 }
-.buttonWrapper{
+.buttonWrapper,.controls{
   text-align: center;
 }
 .buttonWrapper >button{
