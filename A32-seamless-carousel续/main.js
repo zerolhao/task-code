@@ -5,7 +5,10 @@ let current = 0
 // 制造假的 slides
 makeFakeSlides()
 
-$slides.css({ transform: 'translateX(-300px)' })
+// 从真正的第一张开始显示
+//$slides.css({ transform: 'translateX(-300px)' })
+$slides.hide().offset() // 只需要知道不加offset不行，hide()会没用，原理不明
+$slides.css({ transform: 'translateX(-300px)' }).show()
 
 // 点击图片对应按钮切换
 $btns.on('click', function(e) { //  $('#buttonWrapper').on('click', 'button', function(e){写法不同
