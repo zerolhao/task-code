@@ -51,7 +51,7 @@
 
 <body>
   <div class="wrapper">
-    <button id="clickMe">点击我</button>
+    <button id="clickMe">点击我打开浮层</button>
     <div id="popover" class='popover'>
       <input type="checkbox">浮层
     </div>
@@ -60,6 +60,7 @@
   <script>
   $('#clickMe').on('click', function(e) {
     $('#popover').show()
+    e.stopPropagation()
     $('#popover').on('click', function(e) {
       e.stopPropagation()
     })
