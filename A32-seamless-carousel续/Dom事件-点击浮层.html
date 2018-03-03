@@ -59,8 +59,11 @@
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <script>
   $('#clickMe').on('click', function(e) {
-    $('#popover').show()
-    e.stopPropagation()
+    if($('#popover')[0].style.display === 'none'){
+      $('#popover').show()
+    } else{
+      $('#popover').hide()
+    }
     $('#popover').on('click', function(e) {
       e.stopPropagation()
     })
