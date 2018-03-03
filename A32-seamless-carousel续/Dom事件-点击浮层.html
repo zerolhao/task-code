@@ -24,7 +24,6 @@
     left: 100%;
     margin-left: 10px;
     padding: 10px;
-    display: none;
     background-color: #fff;
   }
 
@@ -52,26 +51,24 @@
 <body>
   <div class="wrapper">
     <button id="clickMe">点击我打开浮层</button>
-    <div id="popover" class='popover'>
+    <div id="popover" class='popover' style="display: none;">
       <input type="checkbox">浮层
     </div>
   </div>
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <script>
+  $('.wrapper').on('click', function(e) {
+    e.stopPropagation()
+  })
   $('#clickMe').on('click', function(e) {
-    if($('#popover')[0].style.display === 'none'){
+    if($('#popover')[0].style.display === 'none'){  // set行内样式
       $('#popover').show()
     } else{
       $('#popover').hide()
     }
-    $('#popover').on('click', function(e) {
-      e.stopPropagation()
+    $(document).one('click', function(e) {
+      $('#popover').hide()
     })
-    setTimeout(function() {
-      $(document).one('click', function(e) {
-        $('#popover').hide()
-      })
-    }, 0)
   })
   </script>
 </body>
