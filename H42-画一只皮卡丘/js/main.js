@@ -1,62 +1,8 @@
-function writeCode(code, run){
-  let codeView = document.querySelector('#codeView>.code')
-  let styleTag = document.querySelector('#styleTag')
-  let n = 0
-  let id = setInterval(function(){
-    codeView.innerHTML= Prism.highlight(code.substring(0,n), Prism.languages.css)
-    styleTag.innerText = code.substring(0,n)
-    codeView.scrollTop = codeView.scrollHeight
-    if(n >= code.length){
-      clearInterval(id)
-      run && run.call()
-    }
-    n++
-  },1)
-}
 var pikachu = `
 /* 
  * 这次我们要写一个皮卡丘
  */
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-}
-*::before,*::after{
-  box-sizing: border-box;
-}
-body{
-  background: #FFE600;
-}
-#codeView{
-  width: 430px;
-  position: fixed;
-  top: 22px;
-  left: 22px;
-  bottom: 22px;
-}
-.code{
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,.1);
-  padding: 16px;
-  z-index: 1;
-}
-.pikachu{
-  height: 265px;
-  margin-top: 40%;
-  position: relative;
-}
-@media (max-width: 427px){
-  .preview{ height: 50vh; background: #ffe600;
-    margin-top: 50vh; }
-  .pikachu{ transform: scale(.7); }
-  #codeView{ width: 100%; 
-    top:0;left:0;height:50vh; }
-}
-.pikachu>*:not(:last-child){
-  z-index: 1;
-}
+
 .nose{
   border: 22px solid black;
   border-color: 
@@ -190,5 +136,37 @@ body{
   transform: translate(-50%);
 }
 `
-writeCode(pikachu)
 
+function writeCode(code, fn) {
+  let codeView = document.querySelector('#codeView>.code')
+  let styleTag = document.querySelector('#styleTag')
+  let duration = 35
+  let n = 0
+  $('#btnBox').on('click', 'button', function(e) {
+    let $btn = $(e.currentTarget)
+    $btn.addClass('active')
+      .siblings('.active').removeClass('active')
+    let speed = $btn.attr('data-speed')
+    switch (speed) {
+      case 'slow':
+        duration = 100
+        break
+      case 'normal':
+        duration = 35
+        break
+      case 'fast':
+        duration = 5
+        break
+    }
+  })
+  setTimeout(function run(){
+    codeView.innerHTML = Prism.highlight(code.substring(0, n), Prism.languages.css)
+    styleTag.innerText = code.substring(0, n)
+    codeView.scrollTop = codeView.scrollHeight
+    n++
+    setTimeout(run, duration)
+  }, duration)
+}
+
+
+writeCode(pikachu)
