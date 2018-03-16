@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>画一只皮卡丘</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/prism/prism.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <style id="styleTag"></style>
 </head>
+
 <body>
-  <div class="pikachu">
-    <div class="nose"></div>
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="face left"></div>
-    <div class="face right"></div>
-    <div class="upperLip left"></div>
-    <div class="upperLip right"></div>
-    <div class="lowerLip-wrapper">
-      <div class="lowerLip"></div>
+  <div class="preview">
+    <div class="pikachu">
+      <div class="nose"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+      <div class="upperLip left"></div>
+      <div class="upperLip right"></div>
+      <div class="lowerLip-wrapper">
+        <div class="lowerLip"></div>
+      </div>
     </div>
   </div>
+  <div id="codeView">
+    <pre class="code"></pre>
+  </div>
+  <script src="vendor/prism/prism.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
