@@ -1,13 +1,9 @@
-/*import _ from 'lodash';
-function component() {
-  var element = document.createElement('div');
-
-  // Lodash, currently included via a script, is required for this line to work
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  alert(1)
-  return element;
+import module1 from './module-1'  // 引入模块1
+import module2 from './module-2'  // 引入模块2
+let m1 = module1()  // use 模块
+let m2 = module2()
+var preview = (str)=>{
+  document.body.innerText = str
+  console.log('over')
 }
-
-document.body.appendChild(component());*/
-document.body.innerText = 'webpack-demo'
+preview(m1+m2)
