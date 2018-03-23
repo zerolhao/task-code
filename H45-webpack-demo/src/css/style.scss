@@ -1,0 +1,9 @@
+body{
+  background-color: #f60;
+  p:nth-child(1){
+    color: red;
+  }
+  p:nth-child(2){
+    color: blue;
+  }
+}
