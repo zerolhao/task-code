@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/mucilomoyo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+<style id="jsbin-css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div id="app">
+ 
+</div>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.common.js"><\/script>
+  <script>
+    let view = new Vue({
+      el: '#app',
+      data: {
+        tabs: [
+          {name:'a',content:'This is A'},
+          {name:'b',content:'This is B'},
+          {name:'c',content:'This is C'},
+        ]
+      },
+      template: `
+        <div>
+          <ol>
+            <li v-for="name in tabs">
+              {{name}}
+            </li>
+          </ol>
+        </div>
+      `
+    })
+  <\/script>
+</body>
+</html>
+</style>
+</head>
+<body>
+  <div id="app">
+    
+  </div>
+<script>
+let view = new Vue({
+  el: '#app',
+  data:{
+    selected: 'a',
+    tabs: [
+      {name: 'a', content: 'aaa'},
+      {name: 'b', content: 'bbb'},
+      {name: 'c', content: 'ccc'},
+    ]
+  },
+  template:`
+<div>
+    <ol>
+      <li v-for="tab in tabs"
+        v-on:click="selected = tab.name"
+        v-bind:class="{active: tab.name === selected}"
+      >{{ tab.name }}</li>
+    </ol>
+    <ol>
+      <li v-for="tab in tabs"
+        v-show="selected === tab.name"
+      >{{ tab.content }}</li>
+      
+    </ol>
+</div>
+  `,
+  methods: {
+    
+  }
+})
+</script>
+</body>
+</html>

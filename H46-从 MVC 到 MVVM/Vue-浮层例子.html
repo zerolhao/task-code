@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/mucilomoyo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div id="app">
+ 
+</div>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.common.js"><\/script>
+  <script>
+    let view = new Vue({
+      el: '#app',
+      data: {
+        tabs: [
+          {name:'a',content:'This is A'},
+          {name:'b',content:'This is B'},
+          {name:'c',content:'This is C'},
+        ]
+      },
+      template: `
+        <div>
+          <ol>
+            <li v-for="name in tabs">
+              {{name}}
+            </li>
+          </ol>
+        </div>
+      `
+    })
+  <\/script>
+</body>
+</html>
+</style>
+</head>
+<body>
+<div id="app">
+</div>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+  <script>
+    let view = new Vue({
+      el: '#app',
+      data: {
+        open: false,
+      },
+      template: `
+        <div>
+          <button v-on:click="toggle">点击</button>
+          <div v-show="open">现在你看见我了</div>
+        </div>
+      `,
+      methods:{
+        toggle(){
+          this.open = !this.open
+        }
+      }
+    })
+  </script>
+</body>
+</html>
